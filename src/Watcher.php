@@ -173,7 +173,7 @@ class Watcher
                 2 => STDERR,
             ];
 
-            proc_open($this->option->getBin() . ' vendor/hyperf/watcher/watcher.php start', $descriptorspec, $pipes);
+            proc_open($this->option->getBin() . ' vendor/ijackwu/watcher/watcher.php start', $descriptorspec, $pipes);
 
             $this->output->writeln('Stop server success.');
             $this->channel->push(1);
