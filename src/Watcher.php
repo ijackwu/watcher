@@ -173,7 +173,9 @@ class Watcher
                 2 => STDERR,
             ];
 
-            proc_open($this->option->getBin() . ' vendor/ijackwu/watcher/watcher.php start', $descriptorspec, $pipes);
+            $watchFile = dirname(__DIR__) . DIRECTORY_SEPARATOR . "watcher.php";
+            $cmd = sprintf("%s %s start", $this->option->getBin(), $watchFile);
+            proc_open($cmd, $descriptorspec, $pipes);
 
             $this->output->writeln('Stop server success.');
             $this->channel->push(1);
